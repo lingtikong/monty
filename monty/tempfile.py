@@ -87,6 +87,8 @@ class ScratchDir(object):
         self.rootpath = os.path.abspath(rootpath) if rootpath is not None \
             else None
         self.cwd = os.getcwd()
+        self.rootpath = self.rootpath if self.rootpath != self.cwd else None
+
         self.create_symbolic_link = create_symbolic_link
         self.start_copy = copy_from_current_on_enter
         self.end_copy = copy_to_current_on_exit

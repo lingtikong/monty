@@ -68,7 +68,7 @@ def loadfn(fn, *args, **kwargs):
         with zopen(fn, "rb") as fp:
             return msgpack.load(fp, *args, **kwargs)
     else:
-        with zopen(fn) as fp:
+        with zopen(fn, "rt") as fp:
             if "yaml" in fn.lower():
                 if yaml is None:
                     raise RuntimeError("Loading of YAML files is not "
